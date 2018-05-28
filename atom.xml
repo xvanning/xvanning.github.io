@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="xvanning.cn/"/>
-  <updated>2018-05-28T07:49:06.089Z</updated>
+  <updated>2018-05-28T08:04:47.547Z</updated>
   <id>xvanning.cn/</id>
   
   <author>
@@ -21,9 +21,9 @@
     <link href="xvanning.cn/2018/05/28/%E5%BC%80%E5%A7%8B%E5%8D%9A%E5%AE%A2/"/>
     <id>xvanning.cn/2018/05/28/开始博客/</id>
     <published>2018-05-28T07:18:02.000Z</published>
-    <updated>2018-05-28T07:49:06.089Z</updated>
+    <updated>2018-05-28T08:04:47.547Z</updated>
     
-    <content type="html"><![CDATA[<blockquote><p><strong>前言：懒癌发作憋出来的个人博客</strong>。</p></blockquote><p>以前在网络上查阅资料的时候经常看见很多大神的技术博客，就觉得以后要是自己能有一个博客来记录一下自己的学习和生活该是一件多么酷炫的事情。<strong>然而我实在是太懒了，到现在才搞完这个博客。</strong></p><hr><h2 id="博客大纲"><a href="#博客大纲" class="headerlink" title="博客大纲"></a>博客大纲</h2><ul><li>生活随笔：    <code>写一些自己的生活趣事，相当于朋友圈</code>   </li><li>JAVA笔记 ：   <code>本人学习JAVA的笔记</code>   </li><li>实验室笔记：   <code>实验室方向为卫星通信</code>  </li></ul>]]></content>
+    <content type="html"><![CDATA[<blockquote><p><strong>前言：懒癌发作憋出来的个人博客</strong>。</p></blockquote><p>以前在网络上查阅资料的时候经常看见很多大神的技术博客，就觉得以后要是自己能有一个博客来记录一下自己的学习和生活该是一件多么酷炫的事情。<strong>然而我实在是太懒了，到现在才搞完这个博客。</strong></p><p>准备先整理补上我的以前的一些笔记内容。至少是要好好排排版啊。先写个大纲吧~</p><hr><h2 id="博客大纲"><a href="#博客大纲" class="headerlink" title="博客大纲"></a>博客大纲</h2><ul><li>生活随笔：    <code>写一些自己的生活趣事，相当于朋友圈</code>   </li><li>JAVA笔记 ：   <code>本人学习JAVA的笔记</code>   </li><li>实验室笔记：   <code>实验室方向为卫星通信</code>  </li></ul>]]></content>
     
     <summary type="html">
     
@@ -38,27 +38,6 @@
     </summary>
     
       <category term="生活随笔" scheme="xvanning.cn/categories/%E7%94%9F%E6%B4%BB%E9%9A%8F%E7%AC%94/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Hello World</title>
-    <link href="xvanning.cn/2018/05/25/hello-world/"/>
-    <id>xvanning.cn/2018/05/25/hello-world/</id>
-    <published>2018-05-25T15:51:53.694Z</published>
-    <updated>2018-05-28T05:57:33.763Z</updated>
-    
-    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.
-      
-    
-    </summary>
     
     
   </entry>
