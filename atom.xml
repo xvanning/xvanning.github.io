@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>Coding —— 小麦</title>
+  <title>小麦的个人博客</title>
   
   <subtitle>少玩手机</subtitle>
   <link href="/atom.xml" rel="self"/>
   
   <link href="xvanning.cn/"/>
-  <updated>2018-05-28T05:57:30.188Z</updated>
+  <updated>2018-05-28T07:49:06.089Z</updated>
   <id>xvanning.cn/</id>
   
   <author>
@@ -17,23 +17,27 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>markdown模板</title>
-    <link href="xvanning.cn/2018/05/27/markdown%E6%A8%A1%E6%9D%BF/"/>
-    <id>xvanning.cn/2018/05/27/markdown模板/</id>
-    <published>2018-05-27T12:40:47.000Z</published>
-    <updated>2018-05-28T05:57:30.188Z</updated>
+    <title>开始博客</title>
+    <link href="xvanning.cn/2018/05/28/%E5%BC%80%E5%A7%8B%E5%8D%9A%E5%AE%A2/"/>
+    <id>xvanning.cn/2018/05/28/开始博客/</id>
+    <published>2018-05-28T07:18:02.000Z</published>
+    <updated>2018-05-28T07:49:06.089Z</updated>
     
-    <content type="html"><![CDATA[<p>刚入门hexo，觉得蛮有意思的。准备把以前学习记录的一些笔记挂到博客上面来自娱自乐一下。先收藏了一份markdown语法模板。省了不少力气。</p><h1 id="欢迎使用Markdown写博客"><a href="#欢迎使用Markdown写博客" class="headerlink" title="欢迎使用Markdown写博客"></a>欢迎使用Markdown写博客</h1><ul><li><strong>Markdown和扩展Markdown简洁的语法</strong>  </li><li><strong>代码块高亮</strong>  </li><li><strong>图片链接和图片上传</strong>  </li><li><strong><em>LaTex</em>数学公式</strong>  </li><li><strong>UML序列图和流程图</strong>  </li><li><strong>离线写博客</strong>  </li><li><strong>导入导出Markdown文件</strong>  </li><li><strong>丰富的快捷键</strong>  </li></ul><hr><h2 id="快捷键"><a href="#快捷键" class="headerlink" title="快捷键"></a>快捷键</h2><ul><li>加粗    <code>Ctrl + B</code>   </li><li>斜体    <code>Ctrl + I</code>   </li><li>引用    <code>Ctrl + Q</code>  </li><li>插入链接    <code>Ctrl + L</code>  </li><li>插入代码    <code>Ctrl + K</code>  </li><li>插入图片    <code>Ctrl + G</code>  </li><li>提升标题    <code>Ctrl + H</code>  </li><li>有序列表    <code>Ctrl + O</code>  </li><li>无序列表    <code>Ctrl + U</code>  </li><li>横线    <code>Ctrl + R</code>  </li><li>撤销    <code>Ctrl + Z</code>  </li><li>重做    <code>Ctrl + Y</code>  </li></ul><h2 id="Markdown及扩展"><a href="#Markdown及扩展" class="headerlink" title="Markdown及扩展"></a>Markdown及扩展</h2><blockquote><p>Markdown 是一种轻量级标记语言，它允许人们使用易读易写的纯文本格式编写文档，然后转换成格式丰富的HTML页面。    —— <a href="https://zh.wikipedia.org/wiki/Markdown" target="_blank"> [ 维基百科 ]  </a></p></blockquote><p>使用简单的符号标识不同的标题，将某些文字标记为<strong>粗体</strong>或者<em>斜体</em>，创建一个<a href="http://www.csdn.net" target="_blank" rel="noopener">链接</a>等，详细语法参考帮助？。  </p><p>本编辑器支持 <strong>Markdown Extra</strong> , 　扩展了很多好用的功能。具体请参考[Github][2].    </p><h3 id="表格"><a href="#表格" class="headerlink" title="表格"></a>表格</h3><p><strong>Markdown　Extra</strong>　表格语法：  </p><table><thead><tr><th>项目</th><th>价格  </th></tr></thead><tbody><tr><td>Computer</td><td>$1600  </td></tr><tr><td>Phone</td><td>$12  </td></tr><tr><td>Pipe</td><td>$1  </td></tr></tbody></table><p>可以使用冒号来定义对齐方式：  </p><table><thead><tr><th style="text-align:left">项目</th><th style="text-align:right">价格</th><th style="text-align:center">数量</th></tr></thead><tbody><tr><td style="text-align:left">Computer</td><td style="text-align:right">1600 元</td><td style="text-align:center">5</td></tr><tr><td style="text-align:left">Phone</td><td style="text-align:right">12 元</td><td style="text-align:center">12</td></tr><tr><td style="text-align:left">Pipe</td><td style="text-align:right">1 元</td><td style="text-align:center">234</td></tr></tbody></table><h3 id="代码块"><a href="#代码块" class="headerlink" title="代码块"></a>代码块</h3><p>代码块语法遵循标准markdown代码，例如：  </p><pre><code class="python"><span class="meta">@requires_authorization  </span><span class="function"><span class="keyword">def</span> <span class="title">somefunc</span><span class="params">(param1=<span class="string">''</span>, param2=<span class="number">0</span>)</span>:</span>      <span class="string">'''A docstring'''</span>      <span class="keyword">if</span> param1 &gt; param2: <span class="comment"># interesting  </span>        <span class="keyword">print</span> <span class="string">'Greater'</span>      <span class="keyword">return</span> (param2 - param1 + <span class="number">1</span>) <span class="keyword">or</span> <span class="keyword">None</span>  <span class="class"><span class="keyword">class</span> <span class="title">SomeClass</span>:</span>      <span class="keyword">pass</span>  <span class="meta">&gt;&gt;&gt; </span>message = <span class="string">'''interpreter  </span><span class="string"><span class="meta">... </span>prompt'''</span>  </code></pre><h3 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h3><p>用 <code>[TOC]</code>来生成目录：  </p><p>[TOC]  </p><h3 id="数学公式"><a href="#数学公式" class="headerlink" title="数学公式"></a>数学公式</h3><p>使用MathJax渲染<em>LaTex</em> 数学公式，详见[math.stackexchange.com][1].  </p><ul><li>行内公式，数学公式为：$\Gamma(n) = (n-1)!\quad\forall n\in\mathbb N$。  </li><li>块级公式：  </li></ul><p>x=−b±b2−4ac−−−−−−−√2a</p><p>更多LaTex语法请参考 [这儿][3].  </p><h3 id="UML-图"><a href="#UML-图" class="headerlink" title="UML 图:"></a>UML 图:</h3><p>可以渲染序列图：  </p><pre><code class="sequence">张三-&gt;李四: 嘿，小四儿, 写博客了没?  Note right of 李四: 李四愣了一下，说：  李四--&gt;张三: 忙得吐血，哪有时间写。  </code></pre><p>或者流程图：  </p><pre><code class="flow">st=&gt;start: 开始  e=&gt;end: 结束  op=&gt;operation: 我的操作  cond=&gt;condition: 确认？  st-&gt;op-&gt;cond  cond(yes)-&gt;e  cond(no)-&gt;op  </code></pre><ul><li>关于 <strong>序列图</strong> 语法，参考 [这儿][4],  </li><li>关于 <strong>流程图</strong> 语法，参考 [这儿][5].  </li></ul><h2 id="离线写博客"><a href="#离线写博客" class="headerlink" title="离线写博客"></a>离线写博客</h2><p>即使用户在没有网络的情况下，也可以通过本编辑器离线写博客（直接在曾经使用过的浏览器中输入<a href="http://write.blog.csdn.net/mdeditor" target="_blank" rel="noopener">write.blog.csdn.net/mdeditor</a>即可。<strong>Markdown编辑器</strong>使用浏览器离线存储将内容保存在本地。  </p><p>用户写博客的过程中，内容实时保存在浏览器缓存中，在用户关闭浏览器或者其它异常情况下，内容不会丢失。用户再次打开浏览器时，会显示上次用户正在编辑的没有发表的内容。  </p><p>博客发表后，本地缓存将被删除。　  </p><p>用户可以选择 <i class="icon-disk"></i> 把正在写的博客保存到服务器草稿箱，即使换浏览器或者清除缓存，内容也不会丢失。  </p><blockquote><p><strong>注意：</strong>虽然浏览器存储大部分时候都比较可靠，但为了您的数据安全，在联网后，<strong>请务必及时发表或者保存到服务器草稿箱</strong>。  </p></blockquote>]]></content>
+    <content type="html"><![CDATA[<blockquote><p><strong>前言：懒癌发作憋出来的个人博客</strong>。</p></blockquote><p>以前在网络上查阅资料的时候经常看见很多大神的技术博客，就觉得以后要是自己能有一个博客来记录一下自己的学习和生活该是一件多么酷炫的事情。<strong>然而我实在是太懒了，到现在才搞完这个博客。</strong></p><hr><h2 id="博客大纲"><a href="#博客大纲" class="headerlink" title="博客大纲"></a>博客大纲</h2><ul><li>生活随笔：    <code>写一些自己的生活趣事，相当于朋友圈</code>   </li><li>JAVA笔记 ：   <code>本人学习JAVA的笔记</code>   </li><li>实验室笔记：   <code>实验室方向为卫星通信</code>  </li></ul>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;p&gt;刚入门hexo，觉得蛮有意思的。准备把以前学习记录的一些笔记挂到博客上面来自娱自乐一下。先收藏了一份markdown语法模板。省了不少力气。&lt;/p&gt;
-&lt;h1 id=&quot;欢迎使用Markdown写博客&quot;&gt;&lt;a href=&quot;#欢迎使用Markdown写博客&quot; class=&quot;hea
+        &lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;前言：懒癌发作憋出来的个人博客&lt;/strong&gt;。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;以前在网络上查阅资料的时候经常看见很多大神的技术博客，就觉得以后要是自己能有一个博客来记录一下自己的学习和生活该是一件多么酷炫的事情。&lt;s
       
     
     </summary>
+    
+      <category term="生活随笔" scheme="xvanning.cn/categories/%E7%94%9F%E6%B4%BB%E9%9A%8F%E7%AC%94/"/>
     
     
   </entry>

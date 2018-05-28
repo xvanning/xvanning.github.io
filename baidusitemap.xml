@@ -4,6 +4,26 @@
 
     
   <url>
+    <loc>xvanning.cn/2018/05/28/%E5%BC%80%E5%A7%8B%E5%8D%9A%E5%AE%A2/</loc>
+    <lastmod>2018-05-28T07:49:06.089Z</lastmod>
+    <data>
+        <display>
+        <title>开始博客</title>
+        <pubTime>2018-05-28T07:18:02.000Z</pubTime>
+        
+         
+           
+             
+              <breadCrumb title="生活随笔" url="xvanning.cn/categories/%E7%94%9F%E6%B4%BB%E9%9A%8F%E7%AC%94/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+    
+    
+  <url>
     <loc>xvanning.cn/2018/05/25/hello-world/</loc>
     <lastmod>2018-05-28T05:57:33.763Z</lastmod>
     <data>
@@ -17,25 +37,4 @@
     </data>
     </url>
 
-    
-  <url>
-    <loc>xvanning.cn/2018/05/27/markdown%E6%A8%A1%E6%9D%BF/</loc>
-    <lastmod>2018-05-28T05:57:30.188Z</lastmod>
-    <data>
-        <display>
-        <title>markdown模板</title>
-        <pubTime>2018-05-27T12:40:47.000Z</pubTime>
-        
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-    
-    
-    
-    
-    
 </urlset>
