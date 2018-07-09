@@ -79,20 +79,21 @@
 
 
 
-<meta name="description" content="概念: 将在内存中保存的对象变为二进制数据流的形式进行传输，或者是将其保存在文本中，并不意味着所有类都可以被序列化。需要被序列化的类对象往往需要传输使用。同时这个类必须实现java.io.Serializable接口。但是这个类并没有任何的方法定义，只是一个标识接口">
+<meta name="description" content="前言： Java 对象序列化在初学的时候很不容易理解。 主要是理解 Java 对象序列化的基本概念。   概念: 将在内存中保存的对象变为二进制数据流的形式进行传输，或者是将其保存在文本中，并不意味着所有类都可以被序列化。需要被序列化的类对象往往需要传输使用。同时这个类必须实现java.io.Serializable接口。但是这个类并没有任何的方法定义，只是一个标识接口">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java对象序列化">
 <meta property="og:url" content="xvanning.cn/2018/07/08/Java对象序列化/index.html">
 <meta property="og:site_name" content="XiaoMai&#39;s Coding">
-<meta property="og:description" content="概念: 将在内存中保存的对象变为二进制数据流的形式进行传输，或者是将其保存在文本中，并不意味着所有类都可以被序列化。需要被序列化的类对象往往需要传输使用。同时这个类必须实现java.io.Serializable接口。但是这个类并没有任何的方法定义，只是一个标识接口">
+<meta property="og:description" content="前言： Java 对象序列化在初学的时候很不容易理解。 主要是理解 Java 对象序列化的基本概念。   概念: 将在内存中保存的对象变为二进制数据流的形式进行传输，或者是将其保存在文本中，并不意味着所有类都可以被序列化。需要被序列化的类对象往往需要传输使用。同时这个类必须实现java.io.Serializable接口。但是这个类并没有任何的方法定义，只是一个标识接口">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://pa556khhl.bkt.clouddn.com/%E8%83%8C%E6%99%AF4.jpg">
 <meta property="og:image" content="http://pa556khhl.bkt.clouddn.com/2.12.png">
 <meta property="og:image" content="http://pa556khhl.bkt.clouddn.com/2.13.png">
-<meta property="og:updated_time" content="2018-07-09T01:30:13.085Z">
+<meta property="og:updated_time" content="2018-07-09T02:00:56.307Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java对象序列化">
-<meta name="twitter:description" content="概念: 将在内存中保存的对象变为二进制数据流的形式进行传输，或者是将其保存在文本中，并不意味着所有类都可以被序列化。需要被序列化的类对象往往需要传输使用。同时这个类必须实现java.io.Serializable接口。但是这个类并没有任何的方法定义，只是一个标识接口">
-<meta name="twitter:image" content="http://pa556khhl.bkt.clouddn.com/2.12.png">
+<meta name="twitter:description" content="前言： Java 对象序列化在初学的时候很不容易理解。 主要是理解 Java 对象序列化的基本概念。   概念: 将在内存中保存的对象变为二进制数据流的形式进行传输，或者是将其保存在文本中，并不意味着所有类都可以被序列化。需要被序列化的类对象往往需要传输使用。同时这个类必须实现java.io.Serializable接口。但是这个类并没有任何的方法定义，只是一个标识接口">
+<meta name="twitter:image" content="http://pa556khhl.bkt.clouddn.com/%E8%83%8C%E6%99%AF4.jpg">
 
 
 
@@ -316,7 +317,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  486
+                  522
                 </span>
               
 
@@ -353,8 +354,13 @@
       
 
       
-        <p><strong>概念: 将在内存中保存的对象变为二进制数据流的形式进行传输，或者是将其保存在文本中，并不意味着所有类都可以被序列化。需要被序列化的类对象往往需要传输使用。同时这个类必须实现<code>java.io.Serializable</code>接口。但是这个类并没有任何的方法定义，只是一个标识接口</strong></p>
+        <p><img src="http://pa556khhl.bkt.clouddn.com/%E8%83%8C%E6%99%AF4.jpg" alt="这里写图片描述"></p>
+<blockquote>
+<p><strong>前言：</strong> Java 对象序列化在初学的时候很不容易理解。</p>
+<p>主要是理解 Java 对象序列化的基本概念。</p>
+</blockquote>
 <hr>
+<p><strong>概念: 将在内存中保存的对象变为二进制数据流的形式进行传输，或者是将其保存在文本中，并不意味着所有类都可以被序列化。需要被序列化的类对象往往需要传输使用。同时这个类必须实现<code>java.io.Serializable</code>接口。但是这个类并没有任何的方法定义，只是一个标识接口</strong></p>
 <a id="more"></a>
 <p><strong>使用序列化的情况：</strong></p>
 <pre><code>· 需要通过网络来发送对象，或对象的状态需要被持久化到数据库或文件中。
@@ -613,7 +619,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">4.8k</span>
+    <span title="Site words total count">4.9k</span>
   
 </div>
 
