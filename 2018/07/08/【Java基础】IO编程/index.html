@@ -79,12 +79,12 @@
 
 
 
-<meta name="description" content="概述IO的操作部分重点掌握两个代码模型：  五个类（File、outputstream、inputstream、writer、reader） 一个接口（Serializable）   在java.io包之中file类是唯一一个与文件本身操作（文件的创建、删除、取得文件信息等等）   1. File类的基本使用Java.io.File是一个普通的类，所以直接实例化对象操作就好。实例对象需要两个构造方">
+<meta name="description" content="概述IO的操作部分重点掌握两个代码模型：  五个类（File、outputstream、inputstream、writer、reader） 一个接口（Serializable）   在java.io包之中file类是唯一一个与文件本身操作（文件的创建、删除、取得文件信息等等）">
 <meta property="og:type" content="article">
 <meta property="og:title" content="【Java基础】IO编程">
 <meta property="og:url" content="xvanning.cn/2018/07/08/【Java基础】IO编程/index.html">
 <meta property="og:site_name" content="XiaoMai&#39;s Coding">
-<meta property="og:description" content="概述IO的操作部分重点掌握两个代码模型：  五个类（File、outputstream、inputstream、writer、reader） 一个接口（Serializable）   在java.io包之中file类是唯一一个与文件本身操作（文件的创建、删除、取得文件信息等等）   1. File类的基本使用Java.io.File是一个普通的类，所以直接实例化对象操作就好。实例对象需要两个构造方">
+<meta property="og:description" content="概述IO的操作部分重点掌握两个代码模型：  五个类（File、outputstream、inputstream、writer、reader） 一个接口（Serializable）   在java.io包之中file类是唯一一个与文件本身操作（文件的创建、删除、取得文件信息等等）">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://pa556khhl.bkt.clouddn.com/2.1.png">
 <meta property="og:image" content="http://pa556khhl.bkt.clouddn.com/2.2.png">
@@ -96,10 +96,10 @@
 <meta property="og:image" content="http://pa556khhl.bkt.clouddn.com/2.8.png">
 <meta property="og:image" content="http://pa556khhl.bkt.clouddn.com/2.9.png">
 <meta property="og:image" content="http://pa556khhl.bkt.clouddn.com/2.11.png">
-<meta property="og:updated_time" content="2018-07-08T16:13:27.913Z">
+<meta property="og:updated_time" content="2018-07-09T01:29:42.455Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="【Java基础】IO编程">
-<meta name="twitter:description" content="概述IO的操作部分重点掌握两个代码模型：  五个类（File、outputstream、inputstream、writer、reader） 一个接口（Serializable）   在java.io包之中file类是唯一一个与文件本身操作（文件的创建、删除、取得文件信息等等）   1. File类的基本使用Java.io.File是一个普通的类，所以直接实例化对象操作就好。实例对象需要两个构造方">
+<meta name="twitter:description" content="概述IO的操作部分重点掌握两个代码模型：  五个类（File、outputstream、inputstream、writer、reader） 一个接口（Serializable）   在java.io包之中file类是唯一一个与文件本身操作（文件的创建、删除、取得文件信息等等）">
 <meta name="twitter:image" content="http://pa556khhl.bkt.clouddn.com/2.1.png">
 
 
@@ -392,6 +392,7 @@
 <p>在<code>java.io</code>包之中file类是唯一一个与文件本身操作（文件的创建、删除、取得文件信息等等）</p>
 </blockquote>
 <hr>
+<a id="more"></a>
 <h1 id="1-File类的基本使用"><a href="#1-File类的基本使用" class="headerlink" title="1. File类的基本使用"></a>1. File类的基本使用</h1><p><code>Java.io.File</code>是一个普通的类，所以直接实例化对象操作就好。实例对象需要两个构造方法： </p>
 <pre><code>· 构造方法一：File(String pathname) 
 · 构造方法二：File(File parent, String child) 设置父路径和子路径
@@ -734,7 +735,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#概述"><span class="nav-number">1.</span> <span class="nav-text">概述</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#1-File类的基本使用"><span class="nav-number">2.</span> <span class="nav-text">1. File类的基本使用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-目录创建"><span class="nav-number">3.</span> <span class="nav-text">2. 目录创建</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-取得文件信息"><span class="nav-number">4.</span> <span class="nav-text">3. 取得文件信息</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-File类操作：列出子目录内容"><span class="nav-number">5.</span> <span class="nav-text">4. File类操作：列出子目录内容</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#5-字节流与字符流"><span class="nav-number">6.</span> <span class="nav-text">5. 字节流与字符流</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#6-字节输出流-OutputStream"><span class="nav-number">7.</span> <span class="nav-text">6. 字节输出流 (OutputStream)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#7-字节输入流-InputStream）"><span class="nav-number">8.</span> <span class="nav-text">7. 字节输入流 (InputStream）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#8-字符输出流-Writer）"><span class="nav-number">9.</span> <span class="nav-text">8.字符输出流 (Writer）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#9-字符输入流-Reader"><span class="nav-number">10.</span> <span class="nav-text">9.字符输入流 (Reader)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#10-转换流"><span class="nav-number">11.</span> <span class="nav-text">10. 转换流</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#11-内存操作流"><span class="nav-number">12.</span> <span class="nav-text">11. 内存操作流</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#12-BufferedReader类（文件输入）"><span class="nav-number">13.</span> <span class="nav-text">12. BufferedReader类（文件输入）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#13-Scanner类（文件输入）"><span class="nav-number">14.</span> <span class="nav-text">13. Scanner类（文件输入）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#14-打印流（不能做二进制的输出）"><span class="nav-number">15.</span> <span class="nav-text">14. 打印流（不能做二进制的输出）</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#概述"><span class="nav-text">概述</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#1-File类的基本使用"><span class="nav-text">1. File类的基本使用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-目录创建"><span class="nav-text">2. 目录创建</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-取得文件信息"><span class="nav-text">3. 取得文件信息</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-File类操作：列出子目录内容"><span class="nav-text">4. File类操作：列出子目录内容</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#5-字节流与字符流"><span class="nav-text">5. 字节流与字符流</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#6-字节输出流-OutputStream"><span class="nav-text">6. 字节输出流 (OutputStream)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#7-字节输入流-InputStream）"><span class="nav-text">7. 字节输入流 (InputStream）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#8-字符输出流-Writer）"><span class="nav-text">8.字符输出流 (Writer）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#9-字符输入流-Reader"><span class="nav-text">9.字符输入流 (Reader)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#10-转换流"><span class="nav-text">10. 转换流</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#11-内存操作流"><span class="nav-text">11. 内存操作流</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#12-BufferedReader类（文件输入）"><span class="nav-text">12. BufferedReader类（文件输入）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#13-Scanner类（文件输入）"><span class="nav-text">13. Scanner类（文件输入）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#14-打印流（不能做二进制的输出）"><span class="nav-text">14. 打印流（不能做二进制的输出）</span></a></li></ol></div>
             
 
           </div>
