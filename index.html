@@ -252,6 +252,195 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="xvanning.cn/2018/07/13/MyBatis中Dao层、Service层以及xml文件的CRUD通用模板/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Amos Xu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://pa556khhl.bkt.clouddn.com/Avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="XiaoMai's Coding">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/07/13/MyBatis中Dao层、Service层以及xml文件的CRUD通用模板/" itemprop="url">MyBatis中Dao层、Service层以及xml文件的CRUD通用模板</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-13T16:33:43+08:00">
+                2018-07-13
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JAVA笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">JAVA笔记</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  2,464
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长（分） &asymp;</span>
+                
+                <span title="阅读时长（分）">
+                  11
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p><img src="http://pa556khhl.bkt.clouddn.com/%E5%B0%81%E9%9D%A26.jpg" alt="这里写图片描述"></p>
+<blockquote>
+<p> <strong>前言： </strong> 在学习Mybatis的各个层的时候会出现大量的重复代码。因此把遇到的CRUD的相关操作写下来，并且有非常详细的注释。后续相关CRUD代码不断增加中。水平有限，有错误或者更好的处理方法欢迎指出。</p>
+<p><strong>注意： </strong> 虽然有自动代码文件的插件<code>mybatis-generator</code>，不过我觉得在学习中还是需要熟悉相关操作。</p>
+</blockquote>
+<h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>本文主要包括下面四个内容：</p>
+<ul>
+<li><strong>Dao层接口模板IBaseDao</strong></li>
+<li><strong>Dao接口对应的xml文件模板</strong></li>
+<li><strong>Service层接口模板IBaseService</strong></li>
+<li><strong>Service层实现子类模板BaseServiceImpl</strong></li>
+</ul>
+<hr>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/07/13/MyBatis中Dao层、Service层以及xml文件的CRUD通用模板/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="xvanning.cn/2018/07/08/Java对象序列化/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -315,7 +504,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  522
+                  570
                 </span>
               
 
@@ -331,7 +520,7 @@
                   <span class="post-meta-item-text">阅读时长（分） &asymp;</span>
                 
                 <span title="阅读时长（分）">
-                  2
+                  3
                 </span>
               
             </div>
@@ -353,13 +542,19 @@
 
       
         
-          <p><img src="http://pa556khhl.bkt.clouddn.com/%E8%83%8C%E6%99%AF4.jpg" alt="这里写图片描述"></p>
+          <p><img src="http://pa556khhl.bkt.clouddn.com/%E5%B0%81%E9%9D%A24.jpg" alt="这里写图片描述"></p>
 <blockquote>
 <p><strong>前言：</strong> Java 对象序列化在初学的时候很不容易理解。</p>
 <p>主要是理解 Java 对象序列化的基本概念。</p>
 </blockquote>
 <hr>
-<p><strong>概念: 将在内存中保存的对象变为二进制数据流的形式进行传输，或者是将其保存在文本中，并不意味着所有类都可以被序列化。需要被序列化的类对象往往需要传输使用。同时这个类必须实现<code>java.io.Serializable</code>接口。但是这个类并没有任何的方法定义，只是一个标识接口</strong></p>
+<h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>本文主要包括下面三个内容：</p>
+<ul>
+<li><strong>对象序列化的定义</strong></li>
+<li><strong>使用序列化的情况</strong></li>
+<li><strong>通过例子简单实现对象序列化和反序列化</strong></li>
+</ul>
+<hr>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2018/07/08/Java对象序列化/#more" rel="contents">
@@ -536,7 +731,7 @@
 
       
         
-          <p><img src="http://pa556khhl.bkt.clouddn.com/%E8%83%8C%E6%99%AF3.jpg" alt="这里写图片描述"></p>
+          <p><img src="http://pa556khhl.bkt.clouddn.com/%E5%B0%81%E9%9D%A23.jpg" alt="这里写图片描述"></p>
 <blockquote>
 <p><strong>前言：</strong> Java IO编程是Java API的重要内容。</p>
 <p>本文分十二个部分记录一下我的学习的过程。</p>
@@ -622,7 +817,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/06/11/hexo教程/" itemprop="url">hexo教程</a></h1>
+                <a class="post-title-link" href="/2018/06/11/hexo教程/" itemprop="url">HEXO搭建个人博客教程</a></h1>
         
 
         <div class="post-meta">
@@ -688,7 +883,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1,604
+                  1,647
                 </span>
               
 
@@ -726,11 +921,18 @@
 
       
         
-          <p><img src="http://pa556khhl.bkt.clouddn.com/2.jpg" alt="这里写图片描述"></p>
+          <p><img src="http://pa556khhl.bkt.clouddn.com/%E5%B0%81%E9%9D%A22.jpg" alt="这里写图片描述"></p>
 <blockquote>
 <p><strong>前言：</strong> 记录搭建本博客的步骤以及遇到的问题。</p>
 <p>我的个人博客展示：<a href="https://xvanning.cn/">XiaoMai’s Coding</a></p>
 </blockquote>
+<h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>本文主要包括下面三个内容：</p>
+<ul>
+<li><strong>HEXO博客的基本搭建</strong></li>
+<li><strong>HEXO博客的主题更换</strong></li>
+<li><strong>博客写作</strong></li>
+<li><strong>一些有用的参考附录</strong></li>
+</ul>
 <hr>
           <!--noindex-->
           <div class="post-button text-center">
@@ -870,7 +1072,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  176
+                  163
                 </span>
               
 
@@ -908,7 +1110,7 @@
 
       
         
-          <p><img src="http://pa556khhl.bkt.clouddn.com/1.jpg" alt="这里写图片描述"></p>
+          <p><img src="http://pa556khhl.bkt.clouddn.com/%E5%B0%81%E9%9D%A21.jpg" alt="这里写图片描述"></p>
 <blockquote>
 <p><strong>前言：</strong> 懒癌发作憋出来的个人博客</p>
 <p>以前在网络上查阅资料的时候经常看见很多大神的技术博客，就觉得以后要是自己能有一个博客来记录一下自己的学习和生活该是一件多么酷炫的事情。</p>
@@ -1004,7 +1206,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">5</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1119,7 +1321,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">4.9k</span>
+    <span title="Site words total count">7.4k</span>
   
 </div>
 
