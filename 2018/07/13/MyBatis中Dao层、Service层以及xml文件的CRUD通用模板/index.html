@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="前言：  在学习Mybatis的各个层的时候会出现大量的重复代码。因此把遇到的CRUD的相关操作写下来，并且有非常详细的注释。后续相关CRUD代码不断增加中。水平有限，有错误或者更好的处理方法欢迎指出。 注意：  虽然有自动代码文件的插件mybatis-generator，不过我觉得在学习中还是需要熟悉相关操作。  概述本文主要包括下面四个内容：  Dao层接口模板IBaseDao Dao接">
+<meta name="description" content="前言：  在学习Mybatis的各个层的时候会出现大量的重复代码。因此把遇到的CRUD的相关操作写下来，并且有非常详细的注释。后续相关CRUD代码不断增加中。水平有限，有错误或者更好的处理方法欢迎指出。 注意：  虽然有自动代码文件的插件mybatis-generator，不过我觉得在学习中还是需要熟悉相关操作。   概述本文主要包括下面四个内容：  Dao层接口模板IBaseDao Dao">
 <meta property="og:type" content="article">
 <meta property="og:title" content="MyBatis中Dao层、Service层以及xml文件的CRUD通用模板">
 <meta property="og:url" content="xvanning.cn/2018/07/13/MyBatis中Dao层、Service层以及xml文件的CRUD通用模板/index.html">
 <meta property="og:site_name" content="XiaoMai&#39;s Coding">
-<meta property="og:description" content="前言：  在学习Mybatis的各个层的时候会出现大量的重复代码。因此把遇到的CRUD的相关操作写下来，并且有非常详细的注释。后续相关CRUD代码不断增加中。水平有限，有错误或者更好的处理方法欢迎指出。 注意：  虽然有自动代码文件的插件mybatis-generator，不过我觉得在学习中还是需要熟悉相关操作。  概述本文主要包括下面四个内容：  Dao层接口模板IBaseDao Dao接">
+<meta property="og:description" content="前言：  在学习Mybatis的各个层的时候会出现大量的重复代码。因此把遇到的CRUD的相关操作写下来，并且有非常详细的注释。后续相关CRUD代码不断增加中。水平有限，有错误或者更好的处理方法欢迎指出。 注意：  虽然有自动代码文件的插件mybatis-generator，不过我觉得在学习中还是需要熟悉相关操作。   概述本文主要包括下面四个内容：  Dao层接口模板IBaseDao Dao">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://pa556khhl.bkt.clouddn.com/%E5%B0%81%E9%9D%A26.jpg">
-<meta property="og:updated_time" content="2018-07-13T09:22:58.570Z">
+<meta property="og:updated_time" content="2018-07-13T09:39:28.077Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MyBatis中Dao层、Service层以及xml文件的CRUD通用模板">
-<meta name="twitter:description" content="前言：  在学习Mybatis的各个层的时候会出现大量的重复代码。因此把遇到的CRUD的相关操作写下来，并且有非常详细的注释。后续相关CRUD代码不断增加中。水平有限，有错误或者更好的处理方法欢迎指出。 注意：  虽然有自动代码文件的插件mybatis-generator，不过我觉得在学习中还是需要熟悉相关操作。  概述本文主要包括下面四个内容：  Dao层接口模板IBaseDao Dao接">
+<meta name="twitter:description" content="前言：  在学习Mybatis的各个层的时候会出现大量的重复代码。因此把遇到的CRUD的相关操作写下来，并且有非常详细的注释。后续相关CRUD代码不断增加中。水平有限，有错误或者更好的处理方法欢迎指出。 注意：  虽然有自动代码文件的插件mybatis-generator，不过我觉得在学习中还是需要熟悉相关操作。   概述本文主要包括下面四个内容：  Dao层接口模板IBaseDao Dao">
 <meta name="twitter:image" content="http://pa556khhl.bkt.clouddn.com/%E5%B0%81%E9%9D%A26.jpg">
 
 
@@ -379,6 +379,7 @@
 <p> <strong>前言： </strong> 在学习Mybatis的各个层的时候会出现大量的重复代码。因此把遇到的CRUD的相关操作写下来，并且有非常详细的注释。后续相关CRUD代码不断增加中。水平有限，有错误或者更好的处理方法欢迎指出。</p>
 <p><strong>注意： </strong> 虽然有自动代码文件的插件<code>mybatis-generator</code>，不过我觉得在学习中还是需要熟悉相关操作。</p>
 </blockquote>
+<hr>
 <h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>本文主要包括下面四个内容：</p>
 <ul>
 <li><strong>Dao层接口模板IBaseDao</strong></li>
@@ -457,6 +458,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/07/22/【Java学习笔记】类集框架/" rel="prev" title="【Java学习笔记】类集框架">
+                【Java学习笔记】类集框架 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -537,7 +542,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">6</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -668,7 +673,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">7.4k</span>
+    <span title="Site words total count">10.4k</span>
   
 </div>
 

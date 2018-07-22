@@ -1,0 +1,989 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next-onepiece.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32×32.ico?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16×16.ico?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="前言： Java IO编程是Java API的重要内容。 本文分十二个部分记录一下我的学习的过程。   概述IO的操作部分重点掌握两个代码模型：  五个类（File、outputstream、inputstream、writer、reader） 一个接口（Serializable）   在java.io包之中file类是唯一一个与文件本身操作（文件的创建、删除、取得文件信息等等）">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【Java学习笔记】IO编程">
+<meta property="og:url" content="xvanning.cn/2018/07/08/【Java学习笔记】IO编程/index.html">
+<meta property="og:site_name" content="XiaoMai&#39;s Coding">
+<meta property="og:description" content="前言： Java IO编程是Java API的重要内容。 本文分十二个部分记录一下我的学习的过程。   概述IO的操作部分重点掌握两个代码模型：  五个类（File、outputstream、inputstream、writer、reader） 一个接口（Serializable）   在java.io包之中file类是唯一一个与文件本身操作（文件的创建、删除、取得文件信息等等）">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://pa556khhl.bkt.clouddn.com/%E5%B0%81%E9%9D%A23.jpg">
+<meta property="og:image" content="http://pa556khhl.bkt.clouddn.com/2.1.png">
+<meta property="og:image" content="http://pa556khhl.bkt.clouddn.com/2.2.png">
+<meta property="og:image" content="http://pa556khhl.bkt.clouddn.com/2.3.png">
+<meta property="og:image" content="http://pa556khhl.bkt.clouddn.com/2.4.png">
+<meta property="og:image" content="http://pa556khhl.bkt.clouddn.com/2.5.png">
+<meta property="og:image" content="http://pa556khhl.bkt.clouddn.com/2.6.png">
+<meta property="og:image" content="http://pa556khhl.bkt.clouddn.com/2.7.png">
+<meta property="og:image" content="http://pa556khhl.bkt.clouddn.com/2.8.png">
+<meta property="og:image" content="http://pa556khhl.bkt.clouddn.com/2.9.png">
+<meta property="og:image" content="http://pa556khhl.bkt.clouddn.com/2.11.png">
+<meta property="og:updated_time" content="2018-07-22T13:37:16.590Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="【Java学习笔记】IO编程">
+<meta name="twitter:description" content="前言： Java IO编程是Java API的重要内容。 本文分十二个部分记录一下我的学习的过程。   概述IO的操作部分重点掌握两个代码模型：  五个类（File、outputstream、inputstream、writer、reader） 一个接口（Serializable）   在java.io包之中file类是唯一一个与文件本身操作（文件的创建、删除、取得文件信息等等）">
+<meta name="twitter:image" content="http://pa556khhl.bkt.clouddn.com/%E5%B0%81%E9%9D%A23.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="xvanning.cn/2018/07/08/【Java学习笔记】IO编程/"/>
+
+
+
+
+
+  <title>【Java学习笔记】IO编程 | XiaoMai's Coding</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">XiaoMai's Coding</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">少玩手机</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于我
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="xvanning.cn/2018/07/08/【Java学习笔记】IO编程/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Amos Xu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://pa556khhl.bkt.clouddn.com/Avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="XiaoMai's Coding">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">【Java学习笔记】IO编程</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-08T17:29:08+08:00">
+                2018-07-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JAVA笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">JAVA笔记</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  2,548
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长（分） &asymp;</span>
+                
+                <span title="阅读时长（分）">
+                  11
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><img src="http://pa556khhl.bkt.clouddn.com/%E5%B0%81%E9%9D%A23.jpg" alt="这里写图片描述"></p>
+<blockquote>
+<p><strong>前言：</strong> Java IO编程是Java API的重要内容。</p>
+<p>本文分十二个部分记录一下我的学习的过程。</p>
+</blockquote>
+<hr>
+<h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>IO的操作部分重点掌握两个代码模型：</p>
+<ul>
+<li><strong>五个类（File、outputstream、inputstream、writer、reader）</strong></li>
+<li><strong>一个接口（Serializable）</strong></li>
+</ul>
+<blockquote>
+<p>在<code>java.io</code>包之中file类是唯一一个与文件本身操作（文件的创建、删除、取得文件信息等等）</p>
+</blockquote>
+<hr>
+<a id="more"></a>
+<h1 id="1-File类的基本使用"><a href="#1-File类的基本使用" class="headerlink" title="1. File类的基本使用"></a>1. File类的基本使用</h1><p><code>Java.io.File</code>是一个普通的类，所以直接实例化对象操作就好。实例对象需要两个构造方法： </p>
+<pre><code>· 构造方法一：File(String pathname) 
+· 构造方法二：File(File parent, String child) 设置父路径和子路径
+</code></pre><p>如果要进行文件的基本操作可以使用如下方法：</p>
+<pre><code>· 创建一个新文件：public boolean createNewFile()
+· 删除一个文件：public boolean delete()
+· 判断文件是否存在：public boolean exists()
+</code></pre><p><img src="http://pa556khhl.bkt.clouddn.com/2.1.png" alt="这里写图片描述"></p>
+<hr>
+<h1 id="2-目录创建"><a href="#2-目录创建" class="headerlink" title="2. 目录创建"></a>2. 目录创建</h1><pre><code>· 取得父路径：public File getParentFile()
+· 创建目录：public boolean mkdirs()
+· 路径分隔符常量：public static final String separator (file.separator)
+</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">public class TestDemo &#123;</span><br><span class="line">	public static void main(String[] args) throws Exception &#123;</span><br><span class="line">				</span><br><span class="line">		File file = new File(&quot;C:&quot; + File.separator + &quot;Users&quot; + File.separator +&quot;lenovo&quot; + File.separator +&quot;Desktop&quot; + File.separator +&quot;hello&quot; + File.separator +&quot;hello_world.txt&quot;);</span><br><span class="line">		if (!file.getParentFile().exists()) &#123;//父目录不存在</span><br><span class="line">			file.getParentFile().;//创建父目录</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">		if (file.exists()) &#123;</span><br><span class="line">			file.delete();</span><br><span class="line">		&#125;else &#123;</span><br><span class="line">			file.createNewFile();</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p><strong>注意： </strong> 创建目录会用到路径分隔符常量：<code>public static final String separator (file.separator)</code>为了区分不同系统的不同分隔符，在Windows系统中为C:\XXX，而在linux系统中为C:/XXX</p>
+</blockquote>
+<hr>
+<h1 id="3-取得文件信息"><a href="#3-取得文件信息" class="headerlink" title="3. 取得文件信息"></a>3. 取得文件信息</h1><p><strong>3.1 针对文件： </strong></p>
+<pre><code>· 判断路径是否是文件：public boolean isFile()
+· 判断路径是否是目录：public boolean isDirectory()
+· 取得文件大小（字节）：public long length()
+· 最后修改日期：public long lastModified()
+</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">class Mymath &#123;</span><br><span class="line">	public static double round(double num, int scale) &#123;</span><br><span class="line">		return Math.round(num * Math.pow(10, scale)) / Math.pow(10, scale);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">public class TestDemo &#123;</span><br><span class="line">	public static void main(String[] args) throws Exception &#123;</span><br><span class="line">				</span><br><span class="line">		File file = new File(&quot;C:&quot; + File.separator + &quot;Users&quot; + File.separator +&quot;lenovo&quot; + File.separator +&quot;Desktop&quot; + File.separator +&quot;time.png&quot;);</span><br><span class="line">		if (file.exists() &amp;&amp; file.isFile()) &#123;</span><br><span class="line">			System.out.println(&quot;文件大小：&quot; + Mymath.round(file.length()/(double) 1024 / 1024, 2));</span><br><span class="line">			System.out.println(&quot;最后一次修改日期：&quot; + new Date(file.lastModified()));</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>3.2 针对目录：</strong></p>
+<pre><code>· 列出目录中的全部组成：public File[] listFiles()
+</code></pre><hr>
+<h1 id="4-File类操作：列出子目录内容"><a href="#4-File类操作：列出子目录内容" class="headerlink" title="4. File类操作：列出子目录内容"></a>4. File类操作：列出子目录内容</h1><p><strong>listFiles()只能列出本目录第一级的信息，如果要求列出目录中所有级的信息，则就必须自己来实现处理。必须通过递归的操作来实现</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">public class TestDemo &#123;</span><br><span class="line">	public static void main(String[] args) throws Exception &#123;				</span><br><span class="line">		File file = new File(&quot;C:&quot; + File.separator + &quot;Users&quot; + File.separator +&quot;lenovo&quot; + File.separator +&quot;Desktop&quot; );</span><br><span class="line"></span><br><span class="line">		listdir(file);</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">	public static void listdir(File file)&#123;</span><br><span class="line">		</span><br><span class="line">		if (file.isDirectory()) &#123;</span><br><span class="line">			File result [] = file.listFiles();</span><br><span class="line">			for (int i = 0; i &lt; result.length; i++) &#123;</span><br><span class="line">				listdir(result[i]);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		System.out.println(file);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<h1 id="5-字节流与字符流"><a href="#5-字节流与字符流" class="headerlink" title="5. 字节流与字符流"></a>5. 字节流与字符流</h1><p><strong>File类不支持文件内容处理，如果要处理文件必须要通过流模式来完成。流分为输入流和输出流</strong></p>
+<p><img src="http://pa556khhl.bkt.clouddn.com/2.2.png" alt="这里写图片描述"><br><img src="http://pa556khhl.bkt.clouddn.com/2.3.png" alt="这里写图片描述"></p>
+<p><strong>字节流和字符流的区别：</strong></p>
+<ul>
+<li>字节流是原生的操作。字符流是经过处理后的操作，在你进行网络数据传输、磁盘数据保存所- 保存的支持的数据类型只有：字节。</li>
+<li>而所有磁盘中的数据必须先读取到内存后才可以操作。内存里面回帮助我们讲字节变为字符。字符更加适合处理中文。</li>
+<li><p>只有处理中文才会用字符流，字符流通过缓存来处理，需要close()或者flush()，来强制输出</p>
+<pre><code>· 字节流：InputStream、OutputStream;
+· 字符流：Reader、Writer
+</code></pre></li>
+</ul>
+<p><strong>不管使用的字节流还是字符流，一定要记住，其使用流程基本是固定的：</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">要根据文件的路径创建File类对象</span><br><span class="line">根据字节流或字符流的子类实例化父类对象</span><br><span class="line">进行数据的读取、写入操作</span><br><span class="line">关闭流（close（））</span><br></pre></td></tr></table></figure></p>
+<p><strong>对于IO操作属于资源处理，所有的资源操作处理必须要进行关闭</strong></p>
+<hr>
+<h1 id="6-字节输出流-OutputStream"><a href="#6-字节输出流-OutputStream" class="headerlink" title="6. 字节输出流 (OutputStream)"></a>6. 字节输出流 (OutputStream)</h1><p><strong>实现了Closeable、Flushable两个接口</strong></p>
+<pre><code>· Closeable : public void close() throws IOException
+· Flushable : public void flush() throws IOException
+</code></pre><p><strong>OutputStream里面的方法：</strong></p>
+<pre><code>· 将给定的字节数组内容全部输出：public void write(byte[] b) throws IOException
+· 将部分的字节数组内容输出：public void write(byte[] b,int off,int len) throws IOException
+· 输出单个字节：public abstract void write(int b) throws IOException
+· 接收File类：public FileOutputStream(File file)throws FileNotFoundException
+· 追加内容：public FileOutputStream(File file,boolean append) throws FileNotFoundException
+</code></pre><p><img src="http://pa556khhl.bkt.clouddn.com/2.4.png" alt="这里写图片描述"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">public class TestDemo &#123;</span><br><span class="line">	public static void main(String[] args) throws Exception &#123;		</span><br><span class="line">		</span><br><span class="line">		//1.新建File类对象</span><br><span class="line">		File file = new File(&quot;C:&quot; + File.separator + &quot;Users&quot; + File.separator +&quot;lenovo&quot; + File.separator +&quot;Desktop&quot; + File.separator + &quot;hello.txt&quot; );</span><br><span class="line">		if (!file.getParentFile().exists()) &#123;//确保目录存在</span><br><span class="line">			file.getParentFile().mkdirs();</span><br><span class="line">			&#125;</span><br><span class="line">			//2.OutputStream是一个抽象类。所以需要通过子类进行实例化，意味着只能进行文件操作</span><br><span class="line">			OutputStream output = new FileOutputStream(file,true);</span><br><span class="line">			//3.进行文件的输出处理操作。</span><br><span class="line">			String msg = &quot;abcdefghijk\r\n&quot;;//要求输出的内容</span><br><span class="line">			output.write(msg.getBytes(),0,3);//将内容变为字节数组</span><br><span class="line">			//4.关闭输出</span><br><span class="line">			output.close();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<h1 id="7-字节输入流-InputStream）"><a href="#7-字节输入流-InputStream）" class="headerlink" title="7. 字节输入流 (InputStream）"></a>7. 字节输入流 (InputStream）</h1><p><strong>字节输出流实现了内容到文件的处理，现在要进行文件到内容的处理，通过程序读取内容</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">public abstract class InputStream extends Object implements Closeable</span><br></pre></td></tr></table></figure></p>
+<p><strong>有如下方法：</strong></p>
+<pre><code>· 读取数据到字节数组之中: public int read(byte[] b) throws IOException  返回数据的读取个数如果此时开辟的字节数组大小大于了读取的数据大小，则返回的就是读取个数 如果此时要读取的数据大于开辟的数组内容，返回的就是数组的长度。                                                                                                                                                        
+
+· 读取部分数据到字节数组之中: public int read(byte[] b,int off,int len) throws IOException 每次只读取传递数组的部分内容，如果读取满了则返回的就是长度（len）。如果没有读取满，那么就是返回的读取的数据个数，如果最后没有数据了返回-1                                                                                                         
+· 读取单个字节：public abstract int read() throws IOException 每次只读取传递数组的一个字节的内容。如果最后没有数据了返回-1
+</code></pre><blockquote>
+<p><strong>同理：</strong> InputStream是一个抽象类，所以按照抽象类的一个原则来讲，要想为我们的父类实例化，那么就需要使用子类。因为方法名称都被父类定义好了。所以我们所关注的只是子类的构造方法。如果要进行文件的操作，可以使用FileIntputStream类来处理</p>
+</blockquote>
+<p><img src="http://pa556khhl.bkt.clouddn.com/2.5.png" alt="这里写图片描述"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">public class TestDemo &#123;</span><br><span class="line">	public static void main(String[] args) throws Exception &#123;		</span><br><span class="line">		</span><br><span class="line">		//1.新建File类对象</span><br><span class="line">		File file = new File(&quot;C:&quot; + File.separator + &quot;Users&quot; + File.separator +&quot;lenovo&quot; + File.separator +&quot;Desktop&quot; + File.separator + &quot;hello.txt&quot; );</span><br><span class="line">		if (file.exists()) &#123;//确保目录存在</span><br><span class="line">			InputStream input = new FileInputStream(file);</span><br><span class="line">			byte data[] = new byte[1024]; //每次可以读取的最大数量</span><br><span class="line">			int len = input.read(data);//</span><br><span class="line">			System.out.println(&quot;读取内容为： &quot; + new String(data,0,len));</span><br><span class="line">			input.close();</span><br><span class="line">			&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<h1 id="8-字符输出流-Writer）"><a href="#8-字符输出流-Writer）" class="headerlink" title="8.字符输出流 (Writer）"></a>8.字符输出流 (Writer）</h1><p><strong>字符适合处理中文数据，Writer类是字符输出流的处理类，定义如下：</strong></p>
+<pre><code>· 输出内容：public void write(String str) throws IOException
+</code></pre><p><strong>如果要操作文件肯定使用FileWriter子类，通过Writer实现输出</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">public class TestDemo &#123;</span><br><span class="line">	public static void main(String[] args) throws Exception &#123;		</span><br><span class="line">		//1.新建File类对象</span><br><span class="line">		File file = new File(&quot;C:&quot; + File.separator + &quot;Users&quot; + File.separator +&quot;lenovo&quot; + File.separator +&quot;Desktop&quot; + File.separator + &quot;hello.txt&quot; );</span><br><span class="line">		if (!file.getParentFile().exists()) &#123;//确保目录存在</span><br><span class="line">			file.getParentFile().mkdirs();</span><br><span class="line">			&#125;</span><br><span class="line">		String msg = &quot;世界和平！&quot;;</span><br><span class="line">		Writer wt = new FileWriter(file);</span><br><span class="line">		wt.write(msg);</span><br><span class="line">		wt.close();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<hr>
+<h1 id="9-字符输入流-Reader"><a href="#9-字符输入流-Reader" class="headerlink" title="9.字符输入流 (Reader)"></a>9.字符输入流 (Reader)</h1><p><strong>直接上例子： </strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">public class TestDemo &#123;</span><br><span class="line">	public static void main(String[] args) throws Exception &#123;		</span><br><span class="line">		//1.新建File类对象</span><br><span class="line">		File file = new File(&quot;C:&quot; + File.separator + &quot;Users&quot; + File.separator +&quot;lenovo&quot; + File.separator +&quot;Desktop&quot; + File.separator + &quot;hello.txt&quot; );</span><br><span class="line">		if (file.exists()) &#123;//确保目录存在</span><br><span class="line">			Reader input = new FileReader(file);</span><br><span class="line">			char data[] = new char[1024]; //每次可以读取的最大数量</span><br><span class="line">			int len = input.read(data);//</span><br><span class="line">			System.out.println(&quot;读取内容为： &quot; + new String(data,0,len));</span><br><span class="line">			input.close();</span><br><span class="line">	&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure></p>
+<hr>
+<h1 id="10-转换流"><a href="#10-转换流" class="headerlink" title="10. 转换流"></a>10. 转换流</h1><p><strong>字节流和字符流互相转换：</strong></p>
+<pre><code>· OutputStreamWriter：将字节输出流转换为字符输出流
+· InputStreamReader：将字节输入流转换为字符输入流
+</code></pre><p><img src="http://pa556khhl.bkt.clouddn.com/2.6.png" alt="这里写图片描述"></p>
+<hr>
+<h1 id="11-内存操作流"><a href="#11-内存操作流" class="headerlink" title="11. 内存操作流"></a>11. 内存操作流</h1><p><strong>IO操作除了可以在文件中，也可以在内存中，进行内存操作流。文件流的操作一定会产生一个文件数据（不管这个文件数据最后保存与否）。如果希望进行IO处理，又不希望产生文件。这种情况下就可以使用内存作为操作的终端。</strong></p>
+<pre><code>· 字节内存流：ByteArrayInputStream  ByteArrayOutputStream 
+· 字符内存流：CharArrayReader  CharArrayWriter 
+</code></pre><p><img src="http://pa556khhl.bkt.clouddn.com/2.7.png" alt="这里写图片描述"><br><img src="http://pa556khhl.bkt.clouddn.com/2.8.png" alt="这里写图片描述"><br><img src="http://pa556khhl.bkt.clouddn.com/2.9.png" alt="这里写图片描述"></p>
+<p><strong>通过内存流实现大小写转换的操作： </strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">public class Copy &#123;</span><br><span class="line">	//没有文件产生，理解为临时文件</span><br><span class="line">	public static void main(String[] args) throws IOException &#123;</span><br><span class="line">			String msg = &quot;hello world!!!&quot;;</span><br><span class="line">			byte[] buf = new byte[1024];</span><br><span class="line">			buf = msg.getBytes();</span><br><span class="line">			InputStream input = new ByteArrayInputStream(buf);</span><br><span class="line">			OutputStream output = new ByteArrayOutputStream();</span><br><span class="line">			int temp = 0;</span><br><span class="line">			while ((temp = input.read()) != -1) &#123;</span><br><span class="line">				output.write(Character.toUpperCase(temp));</span><br><span class="line">			&#125;</span><br><span class="line">			System.out.println(output);</span><br><span class="line">			input.close();</span><br><span class="line">			output.close();</span><br><span class="line">		&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<hr>
+<h1 id="12-BufferedReader类（文件输入）"><a href="#12-BufferedReader类（文件输入）" class="headerlink" title="12. BufferedReader类（文件输入）"></a>12. BufferedReader类（文件输入）</h1><p><strong>BufferedReader类的重要方法：</strong></p>
+<pre><code>· 读取一行：public String readLine() throws IOException
+</code></pre><p><img src="http://pa556khhl.bkt.clouddn.com/2.11.png" alt="这里写图片描述"></p>
+<p><strong>输入信息读取： </strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">public class TestDemo &#123;</span><br><span class="line">	public static void main(String[] args) throws Exception &#123;		</span><br><span class="line">		InputStreamReader input = new InputStreamReader(System.in);</span><br><span class="line">		BufferedReader buf = new BufferedReader(input);</span><br><span class="line">		System.out.print(&quot;请输入信息： &quot;);</span><br><span class="line">		String str = buf.readLine();</span><br><span class="line">		System.out.println(&quot;输入信息： &quot; + str);</span><br><span class="line">	&#125;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure></p>
+<hr>
+<h1 id="13-Scanner类（文件输入）"><a href="#13-Scanner类（文件输入）" class="headerlink" title="13. Scanner类（文件输入）"></a>13. Scanner类（文件输入）</h1><p><strong>Scanner类替换了BufferedReader类，它是一个专门进行输入流处理的程序类、同时也可以直接结合正则表达式进行各项处理</strong></p>
+<p><strong>注意以下方法：</strong></p>
+<pre><code>· 判断是否有指定类型的数据：public boolean hasNextXXX()
+· 取得指定类型的数据：public 数据 nextXXX()
+· 定义分隔符：public Scanner useDelimiter(String pattern)
+· 构造方法：public Scanner(InputStream source)
+</code></pre><p><strong>使用Scanner实现数据的输入： </strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">public class TestDemo &#123;</span><br><span class="line">	public static void main(String[] args) throws Exception &#123;		</span><br><span class="line">		Scanner scan = new Scanner(System.in);</span><br><span class="line">		System.out.print(&quot;请输入内容： &quot;);</span><br><span class="line">		if (scan.hasNext()) &#123;//现在有输入内容，补判断空字符串</span><br><span class="line">			System.out.println(&quot;输入内容为： &quot; + scan.next());</span><br><span class="line">		&#125;</span><br><span class="line">		scan.close();</span><br><span class="line">	&#125;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure></p>
+<hr>
+<h1 id="14-打印流（不能做二进制的输出）"><a href="#14-打印流（不能做二进制的输出）" class="headerlink" title="14. 打印流（不能做二进制的输出）"></a>14. 打印流（不能做二进制的输出）</h1><p>除了二进制类型的文件拷贝。以后文件输出用打印流（PrintWriter）：</p>
+<pre><code>PrintWriter = new PrintWriter(new FileOutputStream(new File(pathname)));
+</code></pre><p>文件输入用Scanner扫描流</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div></div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="http://pa556khhl.bkt.clouddn.com/wechat.jpg" alt="Amos Xu 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="http://pa556khhl.bkt.clouddn.com/aipay.jpg" alt="Amos Xu 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/06/11/hexo教程/" rel="next" title="HEXO搭建个人博客教程">
+                <i class="fa fa-chevron-left"></i> HEXO搭建个人博客教程
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/07/08/Java对象序列化/" rel="prev" title="Java对象序列化">
+                Java对象序列化 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="http://pa556khhl.bkt.clouddn.com/Avatar.jpg"
+                alt="Amos Xu" />
+            
+              <p class="site-author-name" itemprop="name">Amos Xu</p>
+              <p class="site-description motion-element" itemprop="description">Aspire to inspire until I expire</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/xvanning" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.zhihu.com/people/xiao-mai-45-52/activities" target="_blank" title="Zhihu">
+                      
+                        <i class="fa fa-fw fa-chrome"></i>Zhihu</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://weibo.com/3459086960/" target="_blank" title="Weibo">
+                      
+                        <i class="fa fa-fw fa-weibo"></i>Weibo</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://blog.csdn.net/xvanning" target="_blank" title="CSDN">
+                      
+                        <i class="fa fa-fw fa-copyright"></i>CSDN</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                推荐阅读
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://bbs.byr.cn/#!default" title="北邮人论坛" target="_blank">北邮人论坛</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://edu.aliyun.com/course/explore?spm=5176.10731491.category.1.LvW9hw&filter%5Btype%5D=all&filter%5Bprice%5D=all&filter%5BcurrentLevelId%5D=all&orderBy=studentNum" title="阿里云大学" target="_blank">阿里云大学</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.imooc.com/" title="慕课网" target="_blank">慕课网</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#概述"><span class="nav-text">概述</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#1-File类的基本使用"><span class="nav-text">1. File类的基本使用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-目录创建"><span class="nav-text">2. 目录创建</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-取得文件信息"><span class="nav-text">3. 取得文件信息</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-File类操作：列出子目录内容"><span class="nav-text">4. File类操作：列出子目录内容</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#5-字节流与字符流"><span class="nav-text">5. 字节流与字符流</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#6-字节输出流-OutputStream"><span class="nav-text">6. 字节输出流 (OutputStream)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#7-字节输入流-InputStream）"><span class="nav-text">7. 字节输入流 (InputStream）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#8-字符输出流-Writer）"><span class="nav-text">8.字符输出流 (Writer）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#9-字符输入流-Reader"><span class="nav-text">9.字符输入流 (Reader)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#10-转换流"><span class="nav-text">10. 转换流</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#11-内存操作流"><span class="nav-text">11. 内存操作流</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#12-BufferedReader类（文件输入）"><span class="nav-text">12. BufferedReader类（文件输入）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#13-Scanner类（文件输入）"><span class="nav-text">13. Scanner类（文件输入）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#14-打印流（不能做二进制的输出）"><span class="nav-text">14. 打印流（不能做二进制的输出）</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Amos Xu</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Site words total count&#58;</span>
+    
+    <span title="Site words total count">10.4k</span>
+  
+</div>
+
+
+<div class="powered-by">
+<i class="fa fa-user-md"></i><span id="busuanzi_container_site_pv">
+  本站访客数:<span id="busuanzi_value_site_uv"></span>
+</span>
+</div>
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+
+  
+
+  
+
+  
+  <!-- 页面点击小红心 -->
+<!-- <script type="text/javascript" src="/js/src/love.js"></script> -->
+
+
+   <canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;" ></canvas> 
+   <script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script> 
+   <script type="text/javascript" src="/js/src/fireworks.js"></script>
+
+
+<!--崩溃欺骗-->
+<!-- <script type="text/javascript" src="/js/src/crash_cheat.js"></script> -->
+
+</body>
+</html>
