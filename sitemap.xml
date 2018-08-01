@@ -2,9 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>xvanning.cn/about/index.html</loc>
+    
+    <lastmod>2018-08-01T13:10:27.345Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>xvanning.cn/2018/07/22/%E3%80%90Java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E3%80%91%E7%B1%BB%E9%9B%86%E6%A1%86%E6%9E%B6/</loc>
     
-    <lastmod>2018-07-22T13:40:46.010Z</lastmod>
+    <lastmod>2018-07-22T13:43:39.713Z</lastmod>
     
   </url>
   
@@ -47,13 +54,6 @@
     <loc>xvanning.cn/categories/index.html</loc>
     
     <lastmod>2018-05-28T06:07:36.129Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>xvanning.cn/about/index.html</loc>
-    
-    <lastmod>2018-05-28T06:04:53.719Z</lastmod>
     
   </url>
   
